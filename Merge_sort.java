@@ -51,9 +51,9 @@ public class Merge_sort {
             if (a[i] <= a[j]) {
                 temp[k] = a[i];
                 i++;
-
                 k++;
-            } else {
+            } 
+            else {
                 temp[k] = a[j];
                 j++;
                 k++;
