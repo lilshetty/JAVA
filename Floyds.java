@@ -14,7 +14,6 @@ public class Floyds {
             for (j = 1; j <= n; j++) {
                 System.out.println("\nwt[" + i + "][" + j + "]");
                 wt[i][j] = in.nextInt();
-
             }
         }
         System.out.println("\n\tComputing All Pair Shrotest Path...\n");
