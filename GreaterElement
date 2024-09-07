@@ -1,0 +1,39 @@
+import java.util.*;
+
+public class GreaterElement {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter the array size");
+        int N = sc.nextInt();
+        int arr[] = new int[N];
+        System.out.println("enter the array elements");
+        for (int i = 0; i < N; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        int newArr[] = findGreat(arr, N);
+        System.out.println("The New Array is: ");
+        for (int i = 0; i < N; i++) {
+            System.out.println(newArr[i]);
+        }
+        sc.close();
+    }
+
+    private static int[] findGreat(int[] arr, int N) {
+        int G[]= new int[N];
+        for (int i = 0; i < N; i++) {
+            int flag=0;
+            for (int j = i+1; j < N; j++) {
+                if (arr[i]<arr[j]) {
+                    G[i] = arr[j];
+                    flag=1;
+                    break;
+                }
+            }
+            if (flag==0) {
+                G[i]=-1;
+            }
+        }
+        return G;
+    }
+}
