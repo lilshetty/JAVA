@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class reverseInteger {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter an integer");
+        int x = sc.nextInt();
+        int revInt = reverseInt(x);
+        System.out.println("the reversed integer is: "+revInt);
+        sc.close();
+    }
+
+    private static int reverseInt(int x) {
+        int tempRev, rev=0;
+        while (x!=0) {
+            tempRev = x%10;
+            rev = (rev*10) + tempRev;
+            x = x/10;
+        }
+        return rev;
+    }
+}
