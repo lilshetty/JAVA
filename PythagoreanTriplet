@@ -1,0 +1,40 @@
+import java.util.*;
+
+public class pythagoreanT {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the size of the array: ");
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        System.out.println("enter the elements of the array:");
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = sc.nextInt();
+        }
+        boolean hasTriplet = checkTriplet(arr);
+        if (hasTriplet) {
+            System.out.println("Triplets found in array!");
+        }
+        else{
+            System.out.println("No triplets found in array!");
+        }
+    }
+
+    private static boolean checkTriplet(int[] arr) {
+        Arrays.sort(arr);
+        Set<Integer> squares = new HashSet<>();
+        for (int i = 0; i < arr.length; i++) {
+            squares.add(arr[i]*arr[i]);
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i+1; j < arr.length; j++) {
+                int sumSquares = (arr[i]*arr[i]) + (arr[j]*arr[j]);
+                if (squares.contains(sumSquares)) {
+                    System.out.println("triplets are: ("+arr[i]+","+arr[j]+","+(int) Math.sqrt(sumSquares)+")");
+                    return  true;
+                }
+            }
+        }
+        return false;
+    }
+}
