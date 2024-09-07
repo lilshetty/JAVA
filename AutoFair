@@ -1,0 +1,58 @@
+import java.util.Scanner;
+
+public class AutoFair {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the distance covered in km");
+        int userDist = sc.nextInt();
+        System.out.println("Enter the waiting time in minutes");
+        int userTime = sc.nextInt();
+        System.out.println("Enter the luggage size in kg");
+        int userLug = sc.nextInt();
+
+        int costForDistance = Distance(userDist);
+        int costForWait = WaitTime(userTime);
+        int costForLug = Luggage(userLug);
+
+        int TotalCost = costForDistance + costForLug + costForWait;
+        System.out.println("The Total Auto Fair is: Rs" +TotalCost);
+        sc.close();
+    }
+
+    public static Integer Distance(int userDist){
+        int disCost=0, minCost=35;
+
+        if(userDist==0){
+            disCost=0;
+        }
+        else if (userDist<=1.6) {
+             disCost = minCost;
+        }
+        else if (userDist>1.6) {
+            disCost = (int) (minCost + (userDist - 1.6)*10);
+        }
+        return disCost;
+    }
+
+    private static int WaitTime(int userTime) {
+        int waitCost = 0;
+        if(userTime<=0){
+            waitCost=0;
+        }
+        else if(userTime>=1){
+            waitCost+=userTime;
+        }
+        return waitCost;
+    }
+
+    private static int Luggage(int userLug) {
+        int luggageCost=0;
+        if(userLug<=0){
+            luggageCost=0;
+        }
+        else{
+            luggageCost+=(userLug*0.5);
+        }
+        return luggageCost;
+    }
+}
