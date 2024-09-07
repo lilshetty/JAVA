@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Vehicle {
+    public static void main(String[] args) {
+        int totalV, totalW, totalTwo, totalFour;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter the vehicles");
+        totalV = sc.nextInt();
+        System.out.println("enter the wheels");
+        totalW = sc.nextInt();
+        if(totalW<(2*totalV) || totalW> (4*totalV)) {
+            System.out.println("Invalid Input");
+        }
+        else {
+        totalTwo = twoVehicles(totalV, totalW);
+        totalFour = fourVehicles(totalV,totalW);
+        System.out.println("Total Two Wheeler Vehicles: "+totalTwo);
+        System.out.println("Total Four Wheeler Vehicles: "+totalFour);
+        }
+        sc.close();
+    }
+
+    private static int fourVehicles(int totalV, int totalW) {
+        return (totalW-2*(totalV))/2;
+         
+    }
+
+    private static int twoVehicles(int totalV, int totalW) {
+        return totalV - fourVehicles(totalV, totalW);
+    }
+}
