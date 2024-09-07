@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Main
+{
+public static void main(String[] args)
+{
+Scanner sc = new Scanner(System.in);
+String s = sc.nextLine();
+String r = myreplaceab(s);
+System.out.println(r);
+}
+
+public static String myreplaceab(String value)
+{
+   String newr="";
+   int i;
+   for(i=0;i<value.length();i++){
+       char c = value.charAt(i);
+       if(c=='a'){
+           newr+='b';
+       }
+       else if(c=='b'){
+           newr+='a';
+       }
+       else{
+           newr+=c;
+       }
+   }
+   return newr;
+}
+}
